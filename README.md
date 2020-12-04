@@ -26,5 +26,8 @@ Then, install the `language-cmake-2` package:
 apm install language-cmake-2
 ```
 
+## License
+Licensed under the [MIT license](LICENSE).
+
 [1]: https://github.com/lucas-clemente/language-cmake
 [2]: https://github.com/lucas-clemente/language-cmake/commit/61af86425a75b16f5b1bfb74be18544b97ba9c02
