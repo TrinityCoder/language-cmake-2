@@ -1,3 +1,4 @@
+v1.0.3 (9. 12. 2020) - Added many forgotten argument-constants from CMake v3.15 to v3.19 (over 20).
 v1.0.2 (4. 12. 2020) - Added keywords to package.json.
 v1.0.1 (4. 12. 2020) - Added several overlooked constants.
 v1.0.0 (4. 12. 2020) - The first release. Highlighting up to date with CMake v3.19.1.
