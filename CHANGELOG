@@ -1,3 +1,4 @@
+v1.0.6 (9. 12. 2020) - Added cmake_path().
 v1.0.4 (9. 12. 2020) - Commands and argument-constants up to date with the CMake v3.19.1
                        (commit 7775cbdb821b928dbdb382c18977d78d4e8ea48d from Tue Dec 8 15:21:28 2020 +0000)
 v1.0.3 (9. 12. 2020) - Added many forgotten argument-constants from CMake v3.15 to v3.19 (over 20).
