@@ -1,12 +1,17 @@
 {
   "name": "language-cmake-2",
   "version": "1.0.4",
-  "description": "Syntax highlighting for CMake for Atom (forked from original)",
+  "description": "Syntax highlighting for CMake for Atom (fork of `language-cmake` package)",
+  "author": "TrinityCoder <mmares.trinity@gmail.com> (https://mmares.cz)",
+  "contributors": [
+    "TrinityCoder <mmares.trinity@gmail.com> (https://mmares.cz)"
+  ],
   "keywords": [
     "cmake",
     "language",
     "grammar",
-    "syntax"
+    "syntax",
+    "highlighting"
   ],
   "repository": {
     "type": "git",
@@ -17,7 +22,6 @@
     "atom": ">0.50.0"
   },
   "dependencies": {},
-  "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/TrinityCoder/language-cmake-2/issues"
   },
