@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/TrinityCoder/language-cmake-2/issues"
   },
-  "homepage": "https://github.com/TrinityCoder/language-cmake-2"
+  "homepage": "https://github.com/TrinityCoder/language-cmake-2",
+  "scripts": {
+    "preinstall": "apm list | grep \"language-cmake@\" && exit 1"
+  }
 }
