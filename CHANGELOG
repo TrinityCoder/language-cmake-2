@@ -1,3 +1,5 @@
+v1.0.8 (23.12. 2020) - Fixed bug in install.sh - it didn't uninstall `language-cmake`;
+                       now it does.
 v1.0.7 (23.12. 2020) - Up to date with CMake v3.19.2.
                        Up to date with commit c56d3bef3e6b105465c41cc241ab26cce2327393.
 v1.0.6 (9. 12. 2020) - Added cmake_path().
