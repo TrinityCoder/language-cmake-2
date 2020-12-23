@@ -9,12 +9,12 @@ readonly CURR_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")" &&
 echo "pwd: '$CURR_DIR'"
 
 # Returns "true" iff "$1" package is installed in Atom.
-function installed {
+installed() {
   (( $# == 1)) && apm list --bare | grep "$@"
 }
 
 # Uninstall all "$@" packages, that are installed.
-function apm_uninstall {
+apm_uninstall() {
   for NAME in "$@"; do
     installed "$NAME" && apm uninstall --hard "$NAME"
   done
