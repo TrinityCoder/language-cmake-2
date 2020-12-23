@@ -22,9 +22,9 @@ apm_uninstall() {
 
 # 0) Make sure that both `language-cmake` and `language-cmake-2`
 # packages are not present.
-apm_uninstall "language-cmake@" "language-cmake-2"
+apm_uninstall "language-cmake" "language-cmake-2"
 
 # 1) Install the `language-cmake-2` package into Atom.
 [[ "$1" = "--link" ]] &&
-  apm link --no-dev ||
+  apm link ||
   apm install language-cmake-2
