@@ -1,4 +1,11 @@
 #!/bin/bash
+#
+# Description:
+#
+# 1) Finds the first of `apm`, `apm-beta` and `apm-nightly` commands.
+# 2) Makes sure that `language-cmake` and `language-cmake-2`
+# packages are not installed (both release and dev versions).
+# 3) Installs the `language-cmake-2` package.
 
 set -o errexit
 
