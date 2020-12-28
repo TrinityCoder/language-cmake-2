@@ -17,17 +17,17 @@ command_exists() {
 # Checks if `apm` is a command. If not, also checks `apm-beta`
 # and `apm-nightly`.
 find_apm_command() {
-  command_exists "apm" && echo -n "apm"
-  command_exists "apm-beta" && echo -n "apm-beta"
-  command_exists "apm-nightly" && echo -n "apm-nightly"
+  command_exists "apm" && echo -n "apm" && return 0
+  command_exists "apm-beta" && echo -n "apm-beta" && return 0
+  command_exists "apm-nightly" && echo -n "apm-nightly" && return 0
 }
 
 readonly LOCAL_APM_COMMAND="$(find_apm_command)"
+echo "LOCAL_APM_COMMAND: $LOCAL_APM_COMMAND"
 
 # Retrieve the path of the directory, where is this script saved.
 readonly CURR_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")" &&
   cd "$CURR_DIR"
-
 echo "pwd: '$CURR_DIR'"
 
 # Returns "true" iff "$1" package is installed in Atom.
