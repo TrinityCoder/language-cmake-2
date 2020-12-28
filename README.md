@@ -13,12 +13,14 @@ and the last supported CMake version 3.14.
 place where the original left.
 
 ## How to install
-### By hand
+### a) By hand
 First, you should remove the old, unupdated `language-cmake` package by
 running
 
 ```sh
-apm uninstall language-cmake
+# The `--hard` switch uninstalls both normal and dev versions
+# of the package (from ~/.atom/packages and ~/.atom/dev/packages).
+apm uninstall --hard language-cmake
 ```
 
 Then, install the `language-cmake-2` package:
@@ -27,7 +29,7 @@ Then, install the `language-cmake-2` package:
 apm install language-cmake-2
 ```
 
-### Using the [`install.sh`][3] script
+### b) Using the [`install.sh`][3] script
 Simply run the `install.sh` script. This script gets automatically rid
 of the `language-cmake` package.
 

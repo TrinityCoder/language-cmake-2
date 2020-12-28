@@ -2,6 +2,21 @@
 
 set -o errexit
 
+# Checks if "$1" is a command.
+command_exists() {
+  (( $# == 1 )) && command "$1" 1>/dev/null 2>&1
+}
+
+# Checks if `apm` is a command. If not, also checks `apm-beta`
+# and `apm-nightly`.
+find_apm_command() {
+  command_exists "apm" && echo -n "apm"
+  command_exists "apm-beta" && echo -n "apm-beta"
+  command_exists "apm-nightly" && echo -n "apm-nightly"
+}
+
+readonly LOCAL_APM_COMMAND="$(find_apm_command)"
+
 # Retrieve the path of the directory, where is this script saved.
 readonly CURR_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")" &&
   cd "$CURR_DIR"
@@ -10,13 +25,13 @@ echo "pwd: '$CURR_DIR'"
 
 # Returns "true" iff "$1" package is installed in Atom.
 installed() {
-  (( $# == 1)) && apm list --bare | grep "$@"
+  (( $# == 1 )) && "$LOCAL_APM_COMMAND" list --bare | grep "$@"
 }
 
 # Uninstall all "$@" packages, that are installed.
 apm_uninstall() {
   for NAME in "$@"; do
-    installed "$NAME" && apm uninstall --hard "$NAME"
+    installed "$NAME" && "$LOCAL_APM_COMMAND" uninstall --hard "$NAME"
   done
 }
 
@@ -26,5 +41,5 @@ apm_uninstall "language-cmake" "language-cmake-2"
 
 # 1) Install the `language-cmake-2` package into Atom.
 [[ "$1" = "--link" ]] &&
-  apm link ||
-  apm install language-cmake-2
+  "$LOCAL_APM_COMMAND" link ||
+  "$LOCAL_APM_COMMAND" install language-cmake-2
