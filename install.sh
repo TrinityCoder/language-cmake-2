@@ -7,11 +7,22 @@
 # packages are not installed (both release and dev versions).
 # 3) Installs the `language-cmake-2` package.
 
+err_trap() {
+  echo "Script FAILED." 1>&2
+}
+
+exit_trap() {
+  echo "Script SUCCEEDED." 1>&2
+}
+
+trap err_trap ERR
+trap exit_trap EXIT
+
 set -o errexit
 
 # Checks if "$1" is a command.
 command_exists() {
-  (( $# == 1 )) && command "$1" 1>/dev/null 2>&1
+  (( $# == 1 )) && command "$1" &>/dev/null
 }
 
 # Checks if `apm` is a command. If not, also checks `apm-beta`
@@ -20,19 +31,20 @@ find_apm_command() {
   command_exists "apm" && echo -n "apm" && return 0
   command_exists "apm-beta" && echo -n "apm-beta" && return 0
   command_exists "apm-nightly" && echo -n "apm-nightly" && return 0
+  return 1
 }
 
-readonly LOCAL_APM_COMMAND="$(find_apm_command)"
-echo "LOCAL_APM_COMMAND: $LOCAL_APM_COMMAND"
+readonly LOCAL_APM_COMMAND="${LOCAL_APM_COMMAND:-$(find_apm_command)}"
+echo "LOCAL_APM_COMMAND: '$LOCAL_APM_COMMAND'" 1>&2
 
 # Retrieve the path of the directory, where is this script saved.
 readonly CURR_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")" &&
   cd "$CURR_DIR"
-echo "pwd: '$CURR_DIR'"
+echo "pwd: '$CURR_DIR'" 1>&2
 
 # Returns "true" iff "$1" package is installed in Atom.
 installed() {
-  (( $# == 1 )) && "$LOCAL_APM_COMMAND" list --bare | grep "$@"
+  (( $# == 1 )) && "$LOCAL_APM_COMMAND" list --bare | grep "$@" &>/dev/null
 }
 
 # Uninstall all "$@" packages, that are installed.
