@@ -1,10 +1,10 @@
 {
   "name": "language-cmake-2",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Syntax highlighting for CMake for Atom (fork of `language-cmake` package)",
-  "author": "TrinityCoder <mmares.trinity@gmail.com> (https://mmares.cz)",
+  "author": "TrinityCoder <language-cmake-2@mmares.cz> (https://mmares.cz)",
   "contributors": [
-    "TrinityCoder <mmares.trinity@gmail.com> (https://mmares.cz)"
+    "TrinityCoder <language-cmake-2@mmares.cz> (https://mmares.cz)"
   ],
   "keywords": [
     "cmake",
