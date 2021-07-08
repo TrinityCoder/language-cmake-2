@@ -1,3 +1,5 @@
+v1.1.1 (29. 6. 2021) - Up to date with CMake v3.21.
+                       package.json: Author's e-mail updated to `language-cmake-2@mmares.cz`.
 v1.1.0 (10. 4. 2021) - Up to date with CMake v3.20.1.
 v1.0.9 (28.12. 2020) - Added highlighting of `generator-expressions` upper case parameters.
                        install.sh: Now detects `apm`, `apm-beta` or `apm-nightly` and works with it.
